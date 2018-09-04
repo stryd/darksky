@@ -38,4 +38,5 @@ type DataPoint struct {
 	Visibility                 float64 `json:"visibility"`
 	WindBearing                float64 `json:"windBearing"`
 	WindSpeed                  float64 `json:"windSpeed"`
+	WindGust                   float64 `json:"windGust"`
 }
