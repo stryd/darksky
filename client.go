@@ -6,11 +6,11 @@
 package darksky
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"time"
-	"context"
 
 	"github.com/pkg/errors"
 )
@@ -29,6 +29,10 @@ func NewClient(apiKey string) *Client {
 		APIKey:  apiKey,
 		BaseURL: DEFAULT_BASEURL,
 	}
+}
+
+func (c *Client) SetTimeout(to time.Duration) {
+	c.client.Timeout = to
 }
 
 func (c *Client) GetForecast(lat, lng string, args Arguments) (forecast *Forecast, err error) {
